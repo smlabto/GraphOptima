@@ -1,0 +1,93 @@
+{
+	"layout_generator": {
+		"GRAPHML_FILE": "input_graphs/price_10000nodes.graphml",
+		"DEBUG": true
+	},
+	"external_api": {
+		"INSTRUCTION_PATH": "/api_buffer/",
+		"MAIL": {
+			"FROM": "example@email.com",
+			"TO": "example@email.ca",
+			"SMTP_SERVER": "smtp.mail.me.com",
+			"SMTP_PORT": 587,
+			"KEY_PATH": "key"
+		},
+		"SLURM": {
+			"NUM_LAYOUT_GENERATOR": 1,
+			"NUM_LAYOUT_EVALUATOR": 1,
+			"NUM_OPTIMIZER": 1,
+			"NUM_EXTERNAL_API": 1,
+			"UPDATE_INTERVAL": 60
+		},
+		"EVENT_LOG_DISPLAY_LINES": 10
+	},
+	"optimization_database": {
+		"DATABASE_PATH": "database/database.db",
+		"GLOBAL_DATABASE_PATH": "database/global_database.db",
+		"MAX_ERROR_PERCENTAGE": 0.05,
+		"COSINE_SIMILARITY_THRESHOLD": 0.95,
+		"DATABASE_PRINTOUT_LINES": 5,
+		"LOG_DATABASE_READ_TIME": true
+	},
+	"optimizer": {
+		"LAYOUT_GENERATOR": "cuGraph",
+		"SCALARIZATION": true,
+		"NSGA2": false,
+		"SINGLE_OBJECTIVE_FUNC": true,
+		"MAX_ALLOWABLE_ERROR_RETRY": 5,
+		"DATABASE_WRITE_FREQUENCY": 1,
+		"METADATA": {
+			"algorithm_being_optimized": "cuGraph.forcealtas2",
+			"optimization_algorithm_used": "scipy.differential_evolution with 500 budget and 1 threads.",
+			"readability_calculation_method": "reward.minimized_total_readability_reward; 1 GPU generators and 1 GPU evaluators."
+		},
+		"OPTIMIZATION_BUDGET": 500,
+		"SUBSTITUTION_BY_FINDING_SIMILAR_TESTED_PARAM": true,
+		"SUBSTITUTION_BY_FINDING_EXACT_TESTED_ITERATION_NUM": false,
+		"DATABASE_CACHING_INTERVAL": 100,
+		"REWARD": "reward.minimized_total_readability_reward",
+		"BOUNDS": [[0, 10000], [0, 10000], [10, 1000]],
+		"INITIAL_GUESS": [2.0, 1.0, 100],
+		"NUM_OF_DESIGN_PARAMS": 3,
+		"NUM_OF_OBJECTIVE_PARAMS": 3,
+		"differential_evolution_optimization_params": {
+			"strategy": "best1bin",
+			"disp": true,
+			"seed": 1,
+			"workers": 8
+		},
+		"multi_objective_optimization_params": {
+			"workers": 1,
+			"population_size": 250,
+			"generations": 100,
+			"seed": 1
+		},
+		"email_notification": {
+			"send_email": false,
+			"start_optimization_subject": "Optimization Started on Graham",
+			"start_optimization_email_body": "An async multi-objective parameterization optimization has been started on Graham.",
+			"end_optimization_subject": "Optimization Finished on Graham",
+			"end_optimization_email_body": "An async multi-objective parameterization optimization has been finished on Graham."
+		},
+		"SCALARIZATION_GRANULARITY": 0.25,
+		"BREAKPOINT_SKIP": true
+	},
+	"verify_optimized_params": {
+		"REPEAT_EVAL_TIMES": 3,
+		"PLOT_RESOLUTION": 3000
+	},
+	"reward": {
+		"CROSSLESSNESS_WEIGHT" : 0.7,
+		"NUM_EDGE_CROSSINGS_WEIGHT" : 0,
+		"EDGE_LENGTH_CV_WEIGHT" : 0,
+		"NORMALIZED_CV_WEIGHT" : 0.15,
+		"MIN_ANGLE_WEIGHT" : 0.15,
+		"SHAPE_DELAUNAY_WEIGHT" : 0,
+		"SHAPE_GABRIEL_WEIGHT" : 0,
+		"FORMULA": "CROSSLESSNESS_WEIGHT * (1 - crosslessness) + NORMALIZED_CV_WEIGHT * normalized_cv + MIN_ANGLE_WEIGHT * (1 - min_angle)"
+	},
+	"dot_to_readability_score": {
+		"DEBUG" : true,
+		"GLAM_PATH": "$SCRATCH/netviz/readability_optimization/glam/build/glam"
+	}
+}

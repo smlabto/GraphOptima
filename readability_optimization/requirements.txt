@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+pymoo
+scipy
+numba
+plotly
+dash
+scikit-image
+filelock
+pygraphviz
+gdown

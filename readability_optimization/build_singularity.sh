@@ -1,0 +1,3 @@
+source ENV/bin/activate
+cd $SCRATCH/netviz/readability_optimization/singularity
+gdown 1XrYJNLj5GmrRU9anuC_g9pVXluCAi3zS
