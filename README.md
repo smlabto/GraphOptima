@@ -20,9 +20,7 @@ GraphOptima supports two modes of operation:
 
 1. **Automatic Mode**: In this mode, users need it only execute the `GraphOptima.py` master program. It automatically
    configures layout generators and evaluators based on a predefined task specified in the `config.json`. **Note**: This
-   mode relies on a sbatch file compatible with Compute
-   Canada's [Slurm Work Manager](https://slurm.schedmd.com/documentation.html), which may not be suitable for all HPC
-   clusters.
+   mode relies on a sbatch file compatible with the [Slurm Work Manager](https://slurm.schedmd.com/documentation.html) used by the Digital Research Alliance of Canada (DRAC), which may not be suitable for all HPC clusters.
 2. **Manual Mode**: This mode requires users to manually initiate multiple layout generators, evaluators, and the
    optimizer. It offers real-time output into the workings of each module.
 
