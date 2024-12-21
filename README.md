@@ -37,7 +37,7 @@ Setting up GraphOptima involves the following steps:
    framework code from our GitHub repository to an HPC. In our
    tutorial, we use [Graham](https://docs.alliancecan.ca/wiki/Graham) from the Digital Research Alliance of Canada (formerly, Compute Canada). We recommend moving it to the `$SCRATCH` directory for the maximum performance.
 
-- **Automatic Setup:** run `bash netviz/readability_optimization/install.sh`
+- **Automatic Setup:** run `bash GraphOptima/readability_optimization/install.sh`
 
 - **Manual Setup:** 
   - **Set Up [Apptainer](https://docs.alliancecan.ca/wiki/Apptainer) Virtual Container:** For detailed steps, refer
