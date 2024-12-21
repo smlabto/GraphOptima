@@ -1,4 +1,4 @@
-cd $SCRATCH/netviz/readability_optimization/
+cd $SCRATCH/GraphOptima/readability_optimization/
 
 # Check if the ENV directory exists
 if [ ! -d "ENV" ]; then
